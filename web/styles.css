@@ -3,27 +3,38 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
     margin: 0;
     padding: 0;
     background-color: #333;
     color: white;
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 15% 70% 15%;
     grid-template-rows: auto 1fr auto;
 }
 
 header {
     background-color: #222;
-    padding: 1em;
+    padding: 0.5em;
+    font-size: 1.5em;
     text-align: center;
     grid-area: 1 / 1 / 2 / 4;
 }
 
 main {
     top: 0;
+    text-align: justify;
     grid-area: 2 / 2 / 3 / 3;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+p {
+    font-size: larger;
+    line-height: 1.6;
 }
 
 #arrow {
@@ -99,10 +110,11 @@ li a {
     margin: 0;
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
 }
 
 li a:hover {
-    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 footer {
@@ -110,10 +122,6 @@ footer {
     padding: 1em;
     text-align: center;
     position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    box-sizing: border-box;
     grid-area: 3 / 1 / 4 / 4;
 }
+
