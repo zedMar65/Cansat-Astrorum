@@ -21,6 +21,10 @@ section {
     gap: 6vw;
 }
 
+.logo {
+    height: 8vw;
+}
+
 .title {
     background-color: #333;
 }
@@ -35,7 +39,7 @@ header {
 .model {
     height: 20vw;
     width: 20vw;
-    background-color: red;
+    background-color: brown;
     position: relative;
 }
 
@@ -53,8 +57,32 @@ header {
     height: 40vw;
 }
 
+.can {
+    background-color: green;
+    flex-direction: column;
+}
+
+.scheme {
+    background-color: blue;
+    width: 30vw;
+    height: 30vw;
+}
+
+.team {
+    background-color: darkblue;
+    flex-direction: column;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+}
+
 h1 {
     font-size: 4vw;
+    margin: 0;
 }
 
 p {
