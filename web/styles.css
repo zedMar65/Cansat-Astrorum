@@ -1,5 +1,6 @@
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
     padding: 0;
 }
 
@@ -8,25 +9,47 @@ body {
     margin: 0;
     padding: 0;
     color: white;
+    background-color: black;
     min-height: 100vh;
 }
 
 section {
+    position: relative;
+    scroll-snap-align: center;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 6vw;
+    z-index: -2;
 }
 
 .logo {
     height: 8vw;
 }
 
+.bg {
+    position: absolute;
+    height: 107%;
+    width: 107%;
+    background-image: url(assets/logo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.3;
+    filter: blur(16px);
+    z-index: -1;
+}
+
 .title {
-    background-color: #333;
+    background-color: #2e4053;
+}
+
+.title .bg {
+    background-image: url(assets/logo.jpg);
 }
 
 header {
@@ -44,7 +67,11 @@ header {
 }
 
 .about {
-    background-color: purple;
+    background-color: #85929e;
+}
+
+.about .bg {
+    background-image: url(assets/placeholder.jpg);
 }
 
 .text {
@@ -58,8 +85,12 @@ header {
 }
 
 .can {
-    background-color: green;
+    background-color: #2e4053;
     flex-direction: column;
+}
+
+.can .bg {
+    background-image: url(assets/parachute.jpg);
 }
 
 .scheme {
@@ -69,8 +100,12 @@ header {
 }
 
 .team {
-    background-color: darkblue;
+    background-color: #85929e;
     flex-direction: column;
+}
+
+.team .bg {
+    background-image: url(assets/placeholder.jpg);
 }
 
 .team-grid {
