@@ -1,6 +1,6 @@
 html {
     scroll-behavior: smooth;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y none;
     padding: 0;
 }
 
@@ -16,7 +16,7 @@ body {
 section {
     position: relative;
     scroll-snap-align: center;
-    height: 100vh;
+    height: 110vh;
     width: 100%;
     overflow: hidden;
     margin: 0;
@@ -27,8 +27,8 @@ section {
     z-index: -2;
 }
 
-.logo {
-    height: 8vw;
+.logo { /* Not visible in current background */
+    height: 16vw;
 }
 
 .bg {
@@ -46,6 +46,7 @@ section {
 
 .title {
     background-color: #2e4053;
+    height: 100vh;
 }
 
 .title .bg {
