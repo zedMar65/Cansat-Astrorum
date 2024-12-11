@@ -24,7 +24,6 @@ section {
     justify-content: center;
     align-items: center;
     gap: 6vw;
-    z-index: -2;
 }
 
 .logo { /* Not visible in current background */
@@ -38,15 +37,25 @@ section {
     background-image: url(assets/logo.jpg);
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
-    opacity: 0.3;
+    /*background-attachment: fixed;*/
     filter: blur(16px);
     z-index: -1;
 }
 
+.tint {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+    z-index: -1;
+}
+
 .title {
-    background-color: #2e4053;
     height: 100vh;
+}
+
+.title .tint {
+    background-color: #2e4053;
 }
 
 .title .bg {
@@ -67,7 +76,7 @@ header {
     position: relative;
 }
 
-.about {
+.about .tint {
     background-color: #85929e;
 }
 
@@ -86,8 +95,11 @@ header {
 }
 
 .can {
-    background-color: #2e4053;
     flex-direction: column;
+}
+
+.can .tint {
+    background-color: #2e4053;
 }
 
 .can .bg {
@@ -101,8 +113,11 @@ header {
 }
 
 .team {
-    background-color: #85929e;
     flex-direction: column;
+}
+
+.team .tint {
+    background-color: #85929e;
 }
 
 .team .bg {
