@@ -89,9 +89,52 @@ header {
 }
 
 .gallery {
+    position: relative;
     background-color: blue;
     width: 30vw;
     height: 40vw;
+    padding: 0;
+    overflow: hidden;
+}
+
+.images {
+    display: flex;
+    height: 100%;
+    transition: transform 0.4s;
+}
+
+.gallery-nav {
+    position: absolute;
+    height: 1.5vw;
+    gap: 1vw;
+    bottom: 1.5vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.gallery-nav button {
+    background-color: transparent;
+    height: 1.5vw;
+    width: 1.5vw;
+    border: solid 0.25vw white;
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.gallery-nav button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gallery-nav button.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.gallery-photo {
+    height: 100%;
+    width: 100%;
+    background-color: white;
 }
 
 .can {
