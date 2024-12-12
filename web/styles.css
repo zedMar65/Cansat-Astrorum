@@ -62,8 +62,9 @@ section {
     background-image: url(assets/logo.jpg);
 }
 
-header {
+h1 {
     font-size: 8vw;
+    font-weight: normal;
     position: relative;
     padding: 0;
     margin: 0;
@@ -177,7 +178,7 @@ header {
     gap: 1rem;
 }
 
-h1 {
+h2 {
     font-size: 4vw;
     margin: 0;
 }
