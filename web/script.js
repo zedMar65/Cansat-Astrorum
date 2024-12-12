@@ -51,6 +51,7 @@ photoNames.forEach(photo => {
     const img = document.createElement('img');
     img.src = `assets/${photo}`;
     img.classList.add('gallery-photo');
+    img.style.width = `${100 / photoNames.length}%`;
     photoParent.appendChild(img);
 
     button.addEventListener('click', function() {
