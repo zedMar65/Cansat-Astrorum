@@ -19,8 +19,13 @@ header {
     height: 24vh;
     top: -12vh;
     background-color: transparent;
-    backdrop-filter: blur(32px);
+    backdrop-filter: none;
+    transition: backdrop-filter 0.4s;
     z-index: 2;
+}
+
+header.active {
+    backdrop-filter: blur(32px);
 }
 
 header nav {

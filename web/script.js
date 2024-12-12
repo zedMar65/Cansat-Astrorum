@@ -1,8 +1,7 @@
 const bgs = document.querySelectorAll('.bg');
+const header = document.querySelector('header');
 
-function parallax() {
-    const scrollPosition = window.scrollY;
-
+function parallax(scrollPosition) {
     bgs.forEach(bg => {
         const rect = bg.parentElement.getBoundingClientRect();
         const top = rect.top + scrollPosition;
@@ -16,7 +15,13 @@ function parallax() {
 
 
 window.addEventListener('scroll', function() {
-    parallax();
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+        header.classList.add('active');
+    } else {
+        header.classList.remove('active');
+    }
+    parallax(scrollPosition);
 });
 
 parallax();
