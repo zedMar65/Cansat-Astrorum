@@ -13,6 +13,53 @@ body {
     min-height: 100vh;
 }
 
+header {
+    position: fixed;
+    width: 100%;
+    height: 24vh;
+    top: -12vh;
+    background-color: transparent;
+    backdrop-filter: blur(32px);
+    z-index: 2;
+}
+
+header nav {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.header-list {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    z-index: 2;
+}
+
+.nav-logo {
+    position: relative;
+    height: 8vh;
+}
+
+.header-list li {
+    display: contents;
+    list-style: none;
+    font-size: 4vh;
+    cursor: pointer;
+}
+
+.header-list li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    display: flex;
+}
+
 section {
     position: relative;
     scroll-snap-align: center;
@@ -50,15 +97,15 @@ section {
     z-index: -1;
 }
 
-.title {
+#home {
     height: 100vh;
 }
 
-.title .tint {
+#home .tint {
     background-color: #2e4053;
 }
 
-.title .bg {
+#home .bg {
     background-image: url(assets/logo.jpg);
 }
 
@@ -77,11 +124,11 @@ h1 {
     position: relative;
 }
 
-.about .tint {
+#about .tint {
     background-color: #85929e;
 }
 
-.about .bg {
+#about .bg {
     background-image: url(assets/placeholder.jpg);
 }
 
@@ -141,15 +188,15 @@ h1 {
     background-color: white;
 }
 
-.can {
+#can {
     flex-direction: column;
 }
 
-.can .tint {
+#can .tint {
     background-color: #2e4053;
 }
 
-.can .bg {
+#can .bg {
     background-image: url(assets/parachute.jpg);
 }
 
@@ -159,19 +206,19 @@ h1 {
     height: 30vw;
 }
 
-.team {
+#team {
     flex-direction: column;
 }
 
-.team .tint {
+#team .tint {
     background-color: #85929e;
 }
 
-.team .bg {
+#team .bg {
     background-image: url(assets/placeholder.jpg);
 }
 
-.team-grid {
+#team-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
