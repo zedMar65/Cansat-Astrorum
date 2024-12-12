@@ -36,6 +36,8 @@ const photoNames = [
     "placeholder.jpg"
 ];
 
+photoParent.style.width = `${photoNames.length * 100}%`;
+
 photoNames.forEach(photo => {
     const button = document.createElement('button');
     galleryNav.appendChild(button);
@@ -48,7 +50,7 @@ photoNames.forEach(photo => {
 
     button.addEventListener('click', function() {
         currentPhoto = photoNames.indexOf(photo);
-        photoParent.style.transform = `translateX(-${currentPhoto * 100}%)`;
+        photoParent.style.transform = `translateX(-${currentPhoto * 100 / photoNames.length}%)`;
         navButtons.forEach(button => button.classList.remove('active'));
         button.classList.add('active');
     });
