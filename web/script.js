@@ -35,10 +35,8 @@ const photoParent = document.querySelector('.images');
 let navButtons = [];
 
 const photoNames = [
-    "logo.jpg",
-    "logo.png",
-    "parachute.jpg",
-    "placeholder.jpg"
+    "konferencija.jpg",
+    "kompas.jpg",
 ];
 
 photoParent.style.width = `${photoNames.length * 100}%`;
