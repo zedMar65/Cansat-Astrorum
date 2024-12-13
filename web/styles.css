@@ -236,7 +236,16 @@ h2 {
     margin: 0;
 }
 
-p {
+.big-p {
     font-size: 2vw;
     text-align: justify;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    width: 100%;
+    height: 8vh;
 }
