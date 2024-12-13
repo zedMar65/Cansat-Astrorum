@@ -1,5 +1,7 @@
 const bgs = document.querySelectorAll('.bg');
 const header = document.querySelector('header');
+const headerFadeDistance = 100;
+const headerBlurAmount = 32;
 
 function parallax(scrollPosition) {
     bgs.forEach(bg => {
@@ -9,24 +11,20 @@ function parallax(scrollPosition) {
         bg.style.transform = 'translateY(' + offset + 'px)';
         
     });
-
-    // console.log(scrollPosition);
 }
 
+function headerFade(scrollPosition) {
+    const opacity = Math.min(scrollPosition / headerFadeDistance, 1);
+    header.style.backdropFilter = `blur(${headerBlurAmount * opacity}px)`;
+}
 
 window.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
-    if (scrollPosition > 0) {
-        header.classList.add('active');
-    } else {
-        header.classList.remove('active');
-    }
+    headerFade(scrollPosition);
     parallax(scrollPosition);
 });
 
 parallax();
-
-
 
 const galleryNav = document.querySelector('.gallery-nav');
 const gallery = document.querySelector('.gallery');
