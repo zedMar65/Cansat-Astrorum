@@ -11,6 +11,7 @@ body {
     color: white;
     background-color: black;
     min-height: 100vh;
+    min-width: 320px;
 }
 
 header {
@@ -167,6 +168,7 @@ h1 {
     height: 1.5vw;
     width: 1.5vw;
     border: solid 0.25vw white;
+    padding: 0;
     border-radius: 1vw;
     cursor: pointer;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 8px 1px rgba(0, 0, 0, 0.1) inset;
@@ -238,7 +240,8 @@ h2 {
 
 footer {
     width: 100%;
-    height: 8vh;
+    height: fit-content;
+    padding: 1em 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
