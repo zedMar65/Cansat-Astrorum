@@ -211,21 +211,66 @@ h1 {
 
 #team {
     flex-direction: column;
+    gap: 2vw;
 }
 
 #team .tint {
-    background-color: #85929e;
+    background-color: #36335a;
 }
 
 #team .bg {
-    background-image: url(assets/placeholder.jpg);
+    background-image: url(assets/team.jpg);
 }
 
-#team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 1rem;
+.team-photo {
+    position: relative;
+    width: 65vw;
+    height: 35vw;
+    background-image: url(assets/team.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.member-bounding-box {
+    position: absolute;
+}
+
+.member {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8vw;
+    width: 250px;
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    backdrop-filter: blur(0);
+    transition: backdrop-filter 0.4s, background-color 0.4s;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.member-bounding-box:hover .member {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(16px);
+    z-index: 2;
+}
+
+.member-bounding-box:hover .member h3, .member-bounding-box:hover .member h4, .member-bounding-box:hover .member p {
+    opacity: 1;
+}
+
+.member h3, .member h4, .member p {
+    opacity: 0;
+    margin: 0;
+    transition: opacity 0.4s;
+}
+
+.member p {
+    margin-top: 10px;
 }
 
 h2 {
