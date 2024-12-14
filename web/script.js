@@ -1,7 +1,7 @@
 const bgs = document.querySelectorAll('.bg');
 const header = document.querySelector('header');
 const headerFadeDistance = 100;
-const headerBlurAmount = 32;
+const headerBlurAmount = 64;
 
 function parallax(scrollPosition) {
     bgs.forEach(bg => {
@@ -18,13 +18,21 @@ function headerFade(scrollPosition) {
     header.style.backdropFilter = `blur(${headerBlurAmount * opacity}px)`;
 }
 
-window.addEventListener('scroll', function() {
+function updateScroll() {
     const scrollPosition = window.scrollY;
     headerFade(scrollPosition);
     parallax(scrollPosition);
-});
+}
 
-parallax();
+window.addEventListener('scroll', updateScroll);
+
+updateScroll();
+
+const yearSpans = document.querySelectorAll('#year');
+
+yearSpans.forEach(span => {
+    span.innerText = new Date().getFullYear();
+});
 
 const galleryNav = document.querySelector('.gallery-nav');
 const gallery = document.querySelector('.gallery');
