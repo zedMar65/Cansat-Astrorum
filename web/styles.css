@@ -68,7 +68,7 @@ header nav {
 section {
     position: relative;
     scroll-snap-align: center;
-    height: 110vh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     margin: 0;
@@ -78,8 +78,8 @@ section {
     gap: 6vw;
 }
 
-.logo { /* Not visible in current background */
-    height: 16vw;
+.logo {
+    height: 24vw;
 }
 
 .bg {
@@ -89,7 +89,6 @@ section {
     background-image: url(assets/logo.jpg);
     background-size: cover;
     background-position: center;
-    /*background-attachment: fixed;*/
     filter: blur(16px);
     z-index: -1;
 }
@@ -107,11 +106,11 @@ section {
 }
 
 #home .tint {
-    background-color: #2e4053;
+    background-color: #355e8a;
 }
 
 #home .bg {
-    background-image: url(assets/fonas1.jpg);
+    background-image: url(assets/1Fonas.png);
 }
 
 h1 {
