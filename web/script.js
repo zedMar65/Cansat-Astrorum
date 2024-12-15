@@ -4,12 +4,15 @@ const headerFadeDistance = 100;
 const headerBlurAmount = 64;
 
 function parallax(scrollPosition) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        return;
+    }
     bgs.forEach(bg => {
         const rect = bg.parentElement.getBoundingClientRect();
         const top = rect.top + scrollPosition;
         const offset = (scrollPosition - top) * 0.5;
-        bg.style.transform = 'translateY(' + offset + 'px)';
-        
+        bg.style.transform = 'translateY(' + offset + 'px)'; 
     });
 }
 
@@ -25,6 +28,7 @@ function updateScroll() {
 }
 
 window.addEventListener('scroll', updateScroll);
+window.addEventListener('resize', updateScroll);
 
 updateScroll();
 
