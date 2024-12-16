@@ -197,7 +197,6 @@ section {
 
 .logo {
     height: min(32vw, 48vh);
-    backdrop-filter: blur(16px);
 }
 
 h1 {
