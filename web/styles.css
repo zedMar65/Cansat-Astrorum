@@ -250,49 +250,58 @@ h2 {
     overflow: hidden;
 }
 
-.images {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    transition: transform 0.4s;
-}
-
-.gallery-nav {
+.gallery-item {
     position: absolute;
-    height: 1.5vw;
-    gap: 1vw;
-    bottom: 1.5vw;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-.gallery-nav button {
-    background-color: transparent;
-    height: 1.5vw;
-    width: 1.5vw;
-    border: solid 0.25vw white;
-    padding: 0;
-    border-radius: 1vw;
-    cursor: pointer;
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2), 0 0 8px 1px rgba(0, 0, 0, 0.1) inset;
-    transition: background-color 0.4s;
-}
-
-.gallery-nav button:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-.gallery-nav button.active {
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 1);
-}
-
-.gallery-photo {
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: cover;
-    background-color: white;
+}
+
+.gallery-button {
+    position: absolute;
+    height: 4em;
+    width: 3em;
+    top: 50%;
+    padding: 0;
+    transform: translateY(-50%);
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-image: url(assets/triangle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.gallery:hover .gallery-button {
+    opacity: 1;
+}
+
+.gallery-button-left {
+    left: 0;
+}
+
+.gallery-button-right {
+    right: 0;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.gallery-item.disabled {
+    transition: initial;
+}
+
+.gallery-left {
+    left: -100%;
+}
+
+.gallery-center {
+    left: 0;
+}
+
+.gallery-right {
+    left: 100%;
 }
 
 @media (max-width: 600px) {

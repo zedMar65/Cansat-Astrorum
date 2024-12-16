@@ -53,11 +53,15 @@ yearSpans.forEach(span => {
     span.innerText = new Date().getFullYear();
 });
 
-const galleryNav = document.querySelector('.gallery-nav');
-const gallery = document.querySelector('.gallery');
-const photoParent = document.querySelector('.images');
+const transitionTime = 0.5;
 
-let navButtons = [];
+const gallery = document.querySelector('.gallery');
+const leftButton = document.querySelector('.gallery-button-left');
+const rightButton = document.querySelector('.gallery-button-right');
+
+let leftPhoto = document.querySelector('.gallery-left');
+let centerPhoto = document.querySelector('.gallery-center');
+let rightPhoto = document.querySelector('.gallery-right');
 
 const photoNames = [
     "konferencija.jpg",
@@ -65,25 +69,73 @@ const photoNames = [
     "team_together.jpg",
 ];
 
-photoParent.style.width = `${photoNames.length * 100}%`;
+function nextIndex(index) {
+    return (index + 1) % photoNames.length;
+}
 
-photoNames.forEach(photo => {
-    const button = document.createElement('button');
-    galleryNav.appendChild(button);
-    navButtons.push(button);
+function prevIndex(index) {
+    return (index + photoNames.length - 1) % photoNames.length;
+}
 
-    const img = document.createElement('img');
-    img.src = `assets/${photo}`;
-    img.classList.add('gallery-photo');
-    img.style.width = `${100 / photoNames.length}%`;
-    photoParent.appendChild(img);
+let currentPhoto = 0;
+let buttonsEnabled = true;
 
-    button.addEventListener('click', function() {
-        currentPhoto = photoNames.indexOf(photo);
-        photoParent.style.transform = `translateX(-${currentPhoto * 100 / photoNames.length}%)`;
-        navButtons.forEach(button => button.classList.remove('active'));
-        button.classList.add('active');
-    });
+leftPhoto.src = `assets/${photoNames[prevIndex(currentPhoto)]}`;
+centerPhoto.src = `assets/${photoNames[currentPhoto]}`;
+rightPhoto.src = `assets/${photoNames[nextIndex(currentPhoto)]}`;
+
+leftPhoto.style.transition = 'left ' + transitionTime + 's';
+centerPhoto.style.transition = 'left ' + transitionTime + 's';
+rightPhoto.style.transition = 'left ' + transitionTime + 's';
+
+leftButton.addEventListener('click', function() {
+    if (!buttonsEnabled) return;
+    buttonsEnabled = false;
+
+    currentPhoto = prevIndex(currentPhoto);
+
+    leftPhoto.classList.add('gallery-center');
+    leftPhoto.classList.remove('gallery-left');
+    centerPhoto.classList.add('gallery-right');
+    centerPhoto.classList.remove('gallery-center');
+    rightPhoto.style.transition = 'none';
+    rightPhoto.classList.add('gallery-left');
+    rightPhoto.classList.remove('gallery-right');
+
+    const temp = leftPhoto;
+    leftPhoto = rightPhoto;
+    rightPhoto = centerPhoto;
+    centerPhoto = temp;
+
+    setTimeout(() => {
+        leftPhoto.style.transition = 'left ' + transitionTime + 's';
+        leftPhoto.src = `assets/${photoNames[prevIndex(currentPhoto)]}`;
+        buttonsEnabled = true;
+    }, transitionTime * 1000);
 });
 
-navButtons[0].classList.add('active');
+rightButton.addEventListener('click', function() {
+    if (!buttonsEnabled) return;
+    buttonsEnabled = false;
+
+    currentPhoto = nextIndex(currentPhoto);
+
+    rightPhoto.classList.add('gallery-center');
+    rightPhoto.classList.remove('gallery-right');
+    centerPhoto.classList.add('gallery-left');
+    centerPhoto.classList.remove('gallery-center');
+    leftPhoto.style.transition = 'none';
+    leftPhoto.classList.add('gallery-right');
+    leftPhoto.classList.remove('gallery-left');
+
+    const temp = rightPhoto;
+    rightPhoto = leftPhoto;
+    leftPhoto = centerPhoto;
+    centerPhoto = temp;
+
+    setTimeout(() => {
+        rightPhoto.style.transition = 'left ' + transitionTime + 's';
+        rightPhoto.src = `assets/${photoNames[nextIndex(currentPhoto)]}`;
+        buttonsEnabled = true;
+    }, transitionTime * 1000);
+});
