@@ -20,31 +20,64 @@ header {
     z-index: 5;
 }
 
+.header-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
 header nav {
     position: relative;
-    width: 100%;
+    width: auto;
     bottom: 0;
     display: flex;
     align-items: center;
+    padding: 0.5em;
 }
 
 .header-list {
     display: flex;
-    height: 100%;
-    margin: 0.5em;
     justify-content: center;
     align-items: center;
     gap: 3em;
     padding-left: 2em;
     z-index: 6;
+    margin: 0;
 }
 
 .nav-logo {
     position: relative;
-    height: 2em;
+    height: 4em;
+}
+
+.hamburger {
+    display: none;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-right: 0.5em;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em 0.5em;
+}
+
+.line {
+    position: relative;
+    height: 0.3rem;
+    width: 100%;
+    background-color: black;
+    border-radius: 15px;
 }
 
 .header-list li {
+    display: contents;
     position: relative;
     height: 100%;
     list-style: none;
@@ -52,7 +85,7 @@ header nav {
     cursor: pointer;
 }
 
-.header-list li a {
+.header-link {
     position: relative;
     text-decoration: none;
     color: white;
@@ -62,6 +95,49 @@ header nav {
 
 .header-list li a:hover {
     color: #dbdbdb;
+}
+
+@media (max-width: 600px) {
+
+    header nav {
+        justify-content: space-between;
+    }
+
+    .header-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        display: block;
+        border-top: none;
+        transition: height 0.4s;
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(16px); /* Doesn't apply to things outside nav for some reason */
+    }
+
+    .header-list.active {
+        height: 8em;
+        border-bottom: 1px solid black;
+    }
+
+    .header-list li a {
+        position: relative;
+        border-top: 1px solid black;
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
 }
 
 section {
@@ -94,7 +170,7 @@ section {
     background-size: cover;
     background-position: center;
     filter: blur(16px);
-    z-index: -1;
+    z-index: -2;
 }
 
 .tint {
