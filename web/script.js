@@ -62,6 +62,7 @@ let navButtons = [];
 const photoNames = [
     "konferencija.jpg",
     "kompas.jpg",
+    "team_together.jpg",
 ];
 
 photoParent.style.width = `${photoNames.length * 100}%`;

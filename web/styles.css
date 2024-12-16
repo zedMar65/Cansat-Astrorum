@@ -340,7 +340,7 @@ h2 {
 }
 
 #team .bg {
-    background-image: url(assets/team.jpg);
+    background-image: url(assets/team_presentation.jpg);
 }
 
 .team-photo {
@@ -355,6 +355,8 @@ h2 {
 
 .member-bounding-box {
     position: absolute;
+    /* For debugging */
+    /*border: 1px solid red;*/
 }
 
 .member {
