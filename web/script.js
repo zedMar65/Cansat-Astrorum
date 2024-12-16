@@ -1,7 +1,7 @@
 const bgs = document.querySelectorAll('.bg');
-const header = document.querySelector('header');
+const headerBg = document.querySelector('.header-bg');
 const headerFadeDistance = 100;
-const headerBlurAmount = 64;
+const headerBlurAmount = 32;
 
 function parallax(scrollPosition) {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -18,7 +18,7 @@ function parallax(scrollPosition) {
 
 function headerFade(scrollPosition) {
     const opacity = Math.min(scrollPosition / headerFadeDistance, 1);
-    header.style.backdropFilter = `blur(${headerBlurAmount * opacity}px)`;
+    headerBg.style.backdropFilter = `blur(${headerBlurAmount * opacity}px)`;
 }
 
 function updateScroll() {
@@ -31,6 +31,21 @@ window.addEventListener('scroll', updateScroll);
 window.addEventListener('resize', updateScroll);
 
 updateScroll();
+
+const hamburger = document.querySelector('.hamburger');
+const headerList = document.querySelector('.header-list');
+
+hamburger.addEventListener('click', function() {
+    headerList.classList.toggle('active');
+});
+
+const navLinks = document.querySelectorAll('.header-link');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        headerList.classList.remove('active');
+    });
+});
 
 const yearSpans = document.querySelectorAll('#year');
 
