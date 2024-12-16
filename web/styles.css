@@ -11,7 +11,6 @@ body {
     color: white;
     background-color: black;
     min-height: 100vh;
-    min-width: 200px;
 }
 
 header {
@@ -370,4 +369,26 @@ footer a:hover {
 
 .socials img {
     height: 1.5em;
+}
+
+@media (max-width: 600px) {
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        row-gap: 0.3em;
+    }
+
+    .copyright {
+        grid-area: 3 / 1 / 4 / 2;
+        margin-left: auto;
+    }
+
+    .email {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .socials {
+        grid-area: 2 / 1 / 3 / 2;
+        margin-right: auto;
+    }
 }
