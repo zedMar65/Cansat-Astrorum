@@ -195,13 +195,14 @@ section {
     background-image: url(assets/1Fonas.png);
 }
 
-.logo {
+.home-logo {
     height: min(32vw, 48vh);
 }
 
 h1 {
     font-size: min(12vw, 18vh);
     font-weight: normal;
+    line-height: 0.9;
     position: relative;
     padding: 0;
     margin: 0;
