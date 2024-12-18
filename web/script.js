@@ -1,3 +1,5 @@
+// Background parallax effect + Header blur effect (scrolling effects)
+
 const bgs = document.querySelectorAll('.bg');
 const headerBg = document.querySelector('.header-bg');
 const headerFadeDistance = 100;
@@ -32,6 +34,8 @@ window.addEventListener('resize', updateScroll);
 
 updateScroll();
 
+// Header hamburger menu
+
 const hamburger = document.querySelector('.hamburger');
 const headerList = document.querySelector('.header-list');
 
@@ -47,11 +51,15 @@ navLinks.forEach(link => {
     });
 });
 
+// Footer year
+
 const yearSpans = document.querySelectorAll('#year');
 
 yearSpans.forEach(span => {
     span.innerText = new Date().getFullYear();
 });
+
+// Gallery
 
 const transitionTime = 0.5;
 
@@ -139,3 +147,40 @@ rightButton.addEventListener('click', function() {
         buttonsEnabled = true;
     }, transitionTime * 1000);
 });
+
+// Team member center on narrow screens
+
+const teamMembers = document.querySelectorAll('.member');
+const memberContainer = document.querySelector('.team-photo');
+
+function repositionMembers() {
+    const containerRect = memberContainer.getBoundingClientRect();
+
+    const containerWidth = containerRect.width;
+    const containerLeft = containerRect.left;
+    const containerRight = containerRect.right;
+
+    const memberWidth = teamMembers[0].getBoundingClientRect().width;
+
+    const firstParentRect = teamMembers[0].parentElement.getBoundingClientRect();
+    const lastParentRect = teamMembers[teamMembers.length - 1].parentElement.getBoundingClientRect();
+
+    const memberLeft  = firstParentRect.left + firstParentRect.width / 2 - memberWidth / 2;
+    const memberRight = lastParentRect.right - lastParentRect.width  / 2 + memberWidth / 2;
+
+    if (memberLeft > containerLeft && memberRight < containerRight) {
+        teamMembers.forEach(member => {
+            member.style.left = '';
+        });
+        return;
+    }
+    
+    teamMembers.forEach(member => {
+        const memberLeft = member.parentElement.getBoundingClientRect().left - containerRect.left;
+        const offset = containerWidth / 2 - memberLeft;
+        member.style.left = offset + 'px';
+    });
+}
+
+window.addEventListener('resize', repositionMembers);
+repositionMembers();
