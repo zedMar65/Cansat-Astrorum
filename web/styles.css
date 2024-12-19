@@ -172,7 +172,7 @@ section {
     position: absolute;
     height: max(107vh, 107%);
     width: 107%;
-    background-image: url(assets/logo.jpg);
+    background-image: url(images/logo.jpg);
     background-size: cover;
     background-position: center;
     filter: blur(16px);
@@ -198,7 +198,7 @@ section {
 }
 
 #home .bg {
-    background-image: url(assets/1Fonas.png);
+    background-image: url(images/1Fonas.png);
 }
 
 .home-logo {
@@ -232,7 +232,7 @@ h1 {
 }
 
 #about .bg {
-    background-image: url(assets/fonas2.jpg);
+    background-image: url(images/fonas2.jpg);
 }
 
 .text {
@@ -274,7 +274,7 @@ h2 {
     transform: translateY(-50%);
     border: none;
     background-color: rgba(0, 0, 0, 0.3);
-    background-image: url(assets/triangle.png);
+    background-image: url(images/triangle.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 40%;
@@ -336,7 +336,7 @@ h2 {
 }
 
 #can .bg {
-    background-image: url(assets/parachute.jpg);
+    background-image: url(images/parachute.jpg);
 }
 
 .scheme {
@@ -356,7 +356,7 @@ h2 {
 }
 
 #team .bg {
-    background-image: url(assets/team_presentation.jpg);
+    background-image: url(images/team_presentation.jpg);
 }
 
 .team-photo {

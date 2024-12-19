@@ -88,9 +88,9 @@ function prevIndex(index) {
 let currentPhoto = 0;
 let buttonsEnabled = true;
 
-leftPhoto.src = `assets/${photoNames[prevIndex(currentPhoto)]}`;
-centerPhoto.src = `assets/${photoNames[currentPhoto]}`;
-rightPhoto.src = `assets/${photoNames[nextIndex(currentPhoto)]}`;
+leftPhoto.src = `images/${photoNames[prevIndex(currentPhoto)]}`;
+centerPhoto.src = `images/${photoNames[currentPhoto]}`;
+rightPhoto.src = `images/${photoNames[nextIndex(currentPhoto)]}`;
 
 leftPhoto.style.transition = 'left ' + transitionTime + 's';
 centerPhoto.style.transition = 'left ' + transitionTime + 's';
@@ -117,7 +117,7 @@ leftButton.addEventListener('click', function() {
 
     setTimeout(() => {
         leftPhoto.style.transition = 'left ' + transitionTime + 's';
-        leftPhoto.src = `assets/${photoNames[prevIndex(currentPhoto)]}`;
+        leftPhoto.src = `images/${photoNames[prevIndex(currentPhoto)]}`;
         buttonsEnabled = true;
     }, transitionTime * 1000);
 });
@@ -143,7 +143,7 @@ rightButton.addEventListener('click', function() {
 
     setTimeout(() => {
         rightPhoto.style.transition = 'left ' + transitionTime + 's';
-        rightPhoto.src = `assets/${photoNames[nextIndex(currentPhoto)]}`;
+        rightPhoto.src = `images/${photoNames[nextIndex(currentPhoto)]}`;
         buttonsEnabled = true;
     }, transitionTime * 1000);
 });
