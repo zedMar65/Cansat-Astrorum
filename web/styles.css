@@ -5,7 +5,8 @@ html {
 }
 
 body {
-    font-family: sans-serif;
+    font-family: 'Tw Cen MT',/* 'Segoe UI Variable', 'Gill Sans', 'Corbel', 'Century Gothic',*/ sans-serif;
+    font-weight: bold;
     margin: 0;
     padding: 0;
     color: white;
@@ -47,6 +48,7 @@ header nav {
 }
 
 .nav-logo {
+    margin-left: 1em;
     position: relative;
     height: 4em;
 }
@@ -98,6 +100,10 @@ header nav {
 }
 
 @media (max-width: 600px) {
+
+    .nav-logo {
+        margin-left: 0;
+    }
 
     header nav {
         justify-content: space-between;
@@ -197,6 +203,7 @@ section {
 
 .home-logo {
     height: min(32vw, 48vh);
+    z-index: 1;
 }
 
 h1 {
@@ -384,6 +391,8 @@ h2 {
     border-radius: 10px;
     pointer-events: none;
     z-index: 1;
+
+    font-family: 'Gill Sans MT', sans-serif;
 }
 
 .member-bounding-box:hover .member {
@@ -397,12 +406,14 @@ h2 {
 }
 
 .member h3, .member h4, .member p {
+    font-weight: bold;
     opacity: 0;
     margin: 0;
     transition: opacity 0.4s;
 }
 
 .member p {
+    font-weight: normal;
     margin-top: 10px;
 }
 
