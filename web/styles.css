@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Tw Cen MT';
+    src: url(fonts/twcenmt.ttf);
+}
+
+@font-face {
+    font-family: 'Gill Sans MT';
+    src: url(fonts/gillsansmt.ttf);
+}
+
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y none;
