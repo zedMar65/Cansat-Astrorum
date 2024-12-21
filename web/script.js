@@ -62,6 +62,8 @@ yearSpans.forEach(span => {
 // Gallery
 
 const transitionTime = 0.5;
+const autoSlideDelay = 16;
+const autoSlideInterval = 10;
 
 const gallery = document.querySelector('.gallery');
 const leftButton = document.querySelector('.gallery-button-left');
@@ -96,7 +98,21 @@ leftPhoto.style.transition = 'left ' + transitionTime + 's';
 centerPhoto.style.transition = 'left ' + transitionTime + 's';
 rightPhoto.style.transition = 'left ' + transitionTime + 's';
 
-leftButton.addEventListener('click', function() {
+let autoSlideTimer = null;
+let autoSlideTimeout = null;
+
+function startAutoSlide() {
+    autoSlideTimer = setInterval(slideRight, autoSlideInterval * 1000);
+}
+
+function stopAutoSlide() {
+    clearTimeout(autoSlideTimeout);
+    clearInterval(autoSlideTimer);
+}
+
+startAutoSlide();
+
+function slideLeft() {
     if (!buttonsEnabled) return;
     buttonsEnabled = false;
 
@@ -120,9 +136,9 @@ leftButton.addEventListener('click', function() {
         leftPhoto.src = `images/${photoNames[prevIndex(currentPhoto)]}`;
         buttonsEnabled = true;
     }, transitionTime * 1000);
-});
+}
 
-rightButton.addEventListener('click', function() {
+function slideRight() {
     if (!buttonsEnabled) return;
     buttonsEnabled = false;
 
@@ -146,6 +162,20 @@ rightButton.addEventListener('click', function() {
         rightPhoto.src = `images/${photoNames[nextIndex(currentPhoto)]}`;
         buttonsEnabled = true;
     }, transitionTime * 1000);
+}
+
+leftButton.addEventListener('click', function() {
+    if (!buttonsEnabled) return;
+    stopAutoSlide();
+    slideLeft();
+    autoSlideTimeout = setTimeout(startAutoSlide, Math.max(0, (autoSlideDelay-autoSlideInterval)) * 1000);
+});
+
+rightButton.addEventListener('click', function() {
+    if (!buttonsEnabled) return;
+    stopAutoSlide();
+    slideRight();
+    autoSlideTimeout = setTimeout(startAutoSlide, Math.max(0, (autoSlideDelay-autoSlideInterval)) * 1000);
 });
 
 // Team member center on narrow screens
