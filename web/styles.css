@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    font-family: 'Tw Cen MT',/* 'Segoe UI Variable', 'Gill Sans', 'Corbel', 'Century Gothic',*/ sans-serif;
+    font-family: /*'Tw Cen MT', 'Segoe UI Variable', 'Gill Sans',*/ 'Corbel', /*'Century Gothic',*/ sans-serif;
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -257,6 +257,12 @@ h2 {
 .big-p {
     font-size: max(2vw, 3vh);
     text-align: justify;
+    line-height: 1.1;
+}
+
+.big-p a {
+    color: white;
+    text-decoration: underline;
 }
 
 .gallery {
@@ -401,8 +407,6 @@ h2 {
     border-radius: 10px;
     pointer-events: none;
     z-index: 1;
-
-    font-family: 'Gill Sans MT', sans-serif;
 }
 
 .member-bounding-box:hover .member {
