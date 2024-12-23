@@ -1,11 +1,25 @@
 @font-face {
-    font-family: 'Tw Cen MT';
-    src: url(fonts/twcenmt.ttf);
+    font-family: 'Corbel';
+    src: url(fonts/corbel.ttf);
 }
 
 @font-face {
-    font-family: 'Gill Sans MT';
-    src: url(fonts/gillsansmt.ttf);
+    font-family: 'Corbel';
+    src: url(fonts/corbelb.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbeli.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbelz.ttf);
+    font-weight: bold;
+    font-style: italic;
 }
 
 html {
@@ -15,7 +29,7 @@ html {
 }
 
 body {
-    font-family: /*'Tw Cen MT', 'Segoe UI Variable', 'Gill Sans',*/ 'Corbel', /*'Century Gothic',*/ sans-serif;
+    font-family: 'Corbel', sans-serif;
     font-weight: bold;
     margin: 0;
     padding: 0;
