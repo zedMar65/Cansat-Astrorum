@@ -28,6 +28,10 @@ html {
     padding: 0;
 }
 
+.shadow-logo {
+    scale: 1.3;
+}
+
 body {
     font-family: 'Corbel', sans-serif;
     font-weight: bold;
