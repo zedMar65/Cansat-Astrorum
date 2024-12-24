@@ -34,7 +34,6 @@ html {
 
 body {
     font-family: 'Corbel', sans-serif;
-    font-weight: bold;
     margin: 0;
     padding: 0;
     color: white;
@@ -46,6 +45,7 @@ header {
     position: fixed;
     width: 100%;
     background-color: transparent;
+    font-weight: bold;
     z-index: 5;
 }
 
@@ -257,6 +257,7 @@ h1 {
 
 #about .tint {
     background-color: #1c243b;
+    opacity: 0.57;
 }
 
 #about .bg {
@@ -270,6 +271,7 @@ h1 {
 h2 {
     font-size: max(4vw, 6vh);
     margin: 0;
+    font-weight: bold;
     z-index: 1;
 }
 
