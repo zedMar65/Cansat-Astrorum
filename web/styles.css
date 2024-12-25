@@ -1,0 +1,529 @@
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbel.ttf);
+}
+
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbelb.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbeli.ttf);
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Corbel';
+    src: url(fonts/corbelz.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y none;
+    padding: 0;
+}
+
+.shadow-logo {
+    scale: 1.3;
+}
+
+body {
+    font-family: 'Corbel', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: black;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.header-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+}
+
+header nav {
+    position: relative;
+    width: auto;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.header-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3em;
+    padding-left: 2em;
+    z-index: 6;
+    margin: 0;
+}
+
+.nav-logo {
+    margin-left: 1em;
+    position: relative;
+    height: 4em;
+}
+
+.hamburger {
+    display: none;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-right: 0.5em;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8em 0.5em;
+}
+
+.line {
+    position: relative;
+    height: 0.3rem;
+    width: 100%;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.header-list li {
+    display: contents;
+    position: relative;
+    height: 100%;
+    list-style: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.header-link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    transition: color 0.1s;
+    display: flex;
+}
+
+.header-list li a:hover {
+    color: #dbdbdb;
+}
+
+@media (max-width: 600px) {
+
+    .nav-logo {
+        margin-left: 0;
+    }
+
+    header nav {
+        justify-content: space-between;
+    }
+
+    .header-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        display: block;
+        border-top: none;
+        transition: height 0.4s;
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(16px); /* Doesn't apply to things outside nav for some reason */
+    }
+
+    .header-list.active {
+        height: 8em;
+        border-bottom: 1px solid black;
+    }
+
+    .header-list li a {
+        position: relative;
+        border-top: 1px solid black;
+        width: 100%;
+        height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+}
+
+section {
+    position: relative;
+    scroll-snap-align: center;
+    padding: 4em 0;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-wrap {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg {
+    position: absolute;
+    height: max(107vh, 107%);
+    width: 107%;
+    background-image: url(images/logo.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(16px);
+    z-index: -2;
+}
+
+.tint {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+#home {
+    height: 100vh;
+    padding: 0;
+    gap: min(6vw, 9vh);
+}
+
+#home .tint {
+    background-color: #355e8a;
+}
+
+#home .bg {
+    background-image: url(images/1Fonas.png);
+}
+
+.home-logo {
+    height: min(32vw, 48vh);
+    z-index: 1;
+}
+
+h1 {
+    font-size: min(12vw, 18vh);
+    font-weight: normal;
+    line-height: 0.9;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.model {
+    height: 20vw;
+    width: 20vw;
+    background-color: brown;
+    position: relative;
+}
+
+#about {
+    flex-direction: row;
+    gap: 6vw;
+}
+
+#about .tint {
+    background-color: #1c243b;
+    opacity: 0.57;
+}
+
+#about .bg {
+    background-image: url(images/workstation.jpg);
+}
+
+.text {
+    width: 50vw;
+}
+
+h2 {
+    font-size: max(4vw, 6vh);
+    margin: 0;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.big-p {
+    font-size: max(2vw, 3vh);
+    text-align: justify;
+    line-height: 1.1;
+}
+
+.big-p a {
+    color: white;
+    text-decoration: underline;
+}
+
+.gallery {
+    position: relative;
+    background-color: blue;
+    width: 32vw;
+    height: 40vw;
+    padding: 0;
+    overflow: hidden;
+}
+
+.gallery-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-button {
+    position: absolute;
+    height: 4em;
+    width: 3em;
+    top: 50%;
+    padding: 0;
+    transform: translateY(-50%);
+    border: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-image: url(images/triangle.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.gallery:hover .gallery-button {
+    opacity: 1;
+}
+
+.gallery-button-left {
+    left: 0;
+}
+
+.gallery-button-right {
+    right: 0;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+.gallery-item.disabled {
+    transition: initial;
+}
+
+.gallery-left {
+    left: -100%;
+}
+
+.gallery-center {
+    left: 0;
+}
+
+.gallery-right {
+    left: 100%;
+}
+
+@media (max-width: 600px) {
+    #about {
+        flex-direction: column;
+    }
+
+    .text {
+        width: 80vw;
+    }
+
+    .gallery {
+        width: 80vw;
+        height: 100vw;
+    }
+}
+
+#can {
+    flex-direction: column;
+}
+
+#can .tint {
+    background-color: #2e4053;
+}
+
+#can .bg {
+    background-image: url(images/parachute.jpg);
+}
+
+.scheme {
+    background-color: blue;
+    width: 30vw;
+    height: 30vw;
+}
+
+#team {
+    flex-direction: column;
+    gap: 2vw;
+    overflow: clip visible;
+}
+
+#team .tint {
+    background-color: #36335a;
+}
+
+#team .bg {
+    background-image: url(images/team_presentation.jpg);
+}
+
+.team-photo {
+    position: relative;
+    width: min(90vw, 120vh);
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.member-bounding-box {
+    position: absolute;
+    /* For debugging */
+    /*border: 1px solid red;*/
+}
+
+.member {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: min(12vw, 16vh);
+    width: min(80vw, 300px);
+    height: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+    backdrop-filter: blur(0);
+    transition: backdrop-filter 0.4s, background-color 0.4s;
+    border-radius: 10px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.member-bounding-box:hover .member {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(16px);
+    z-index: 2;
+}
+
+.member-bounding-box:hover .member h3, .member-bounding-box:hover .member h4, .member-bounding-box:hover .member p {
+    opacity: 1;
+}
+
+.member h3, .member h4, .member p {
+    font-weight: bold;
+    opacity: 0;
+    margin: 0;
+    transition: opacity 0.4s;
+}
+
+.member p {
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+footer {
+    width: 100%;
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: 0;
+    align-items: center;
+    background-color: #1f172d;
+}
+
+footer a, footer p {
+    margin: 0;
+    width: fit-content;
+    color: white;
+    text-decoration: none;
+}
+
+footer a {
+    transition: opacity 0.1s;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+.copyright {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+    margin-left: 1em;
+    margin-right: auto;
+    opacity: 0.5;
+}
+
+.email {
+    grid-area: 1 / 2 / 2 / 3;
+    position: relative;
+    margin: auto;
+}
+
+.socials {
+    display: flex;
+    grid-area: 1 / 3 / 2 / 4;
+    position: relative;
+    right: 0;
+    margin-right: 1em;
+    margin-left: auto;
+}
+
+.socials img {
+    height: 1.5em;
+}
+
+@media (max-width: 600px) {
+    footer {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        row-gap: 0.3em;
+    }
+
+    .copyright {
+        grid-area: 3 / 1 / 4 / 2;
+        margin-left: auto;
+    }
+
+    .email {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+
+    .socials {
+        grid-area: 2 / 1 / 3 / 2;
+        margin-right: auto;
+    }
+}
