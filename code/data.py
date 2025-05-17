@@ -1,14 +1,15 @@
-import ujson
+import json
+from sensors import *
 
 def to_json(obj):
     return ujson.dumps(obj)
 
 class Data:
-    self.sensors = {}
-    self.data = {}
-    self.radio
+    sensors = {}
+    data = {}
+    radio = None
     
-    __init__(self, sensorList, radioChannel):
+    def __init__(self, sensorList, radioChannel):
         if sensorList.gy_91:
             self.sensors["sensor_gy"] = SENSOR_GY()
         if sensorList.radiation:

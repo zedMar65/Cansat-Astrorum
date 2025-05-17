@@ -3,6 +3,7 @@
         "ms-python.python",
         "visualstudioexptteam.vscodeintellicode",
         "ms-python.vscode-pylance",
-        "paulober.pico-w-go"
+        "paulober.pico-w-go",
+        "tht13.python"
     ]
 }

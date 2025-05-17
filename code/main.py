@@ -1,17 +1,16 @@
 from data import *
-
-extern true
-extern false
-true = True
-false = False
+from sensors import *
 
 def main() -> None:
+    data.update()
+    return
 
-def INITATATTATTATA(sensorList) -> None:
-    SensorList SENSORS
 
-    extern data
-    Data data(sensorList)
+def INITATATTATTATA() -> None:
+    SENSORS = SensorList()
+
+    global data
+    data = Data(SENSORS, "")
 
 INITATATTATTATA()
 main()
