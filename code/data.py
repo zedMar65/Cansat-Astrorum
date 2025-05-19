@@ -21,7 +21,7 @@ class Data:
         if sensorList.gps:
             self.sensors["sensor_gps"] = SENSOR_GPS(UART(1, baudrate=115200, tx=Pin(8), rx=Pin(9)))
         if sensorList.dht11:
-            self.sensors["sensor_dht11"] = SENSOR_DHT11(Pin(2, Pin.OUT, Pin.PULL_DOWN))
+            self.sensors["sensor_dht11"] = SENSOR_DHT11(Pin(6, Pin.OUT, Pin.PULL_DOWN))
         
         #self.radio = RADIO(
         #    UART(1, baudrate=57600, tx=Pin(4), rx=Pin(5)), # uart
