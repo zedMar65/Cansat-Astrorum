@@ -10,7 +10,7 @@ def nmea_to_decimal(coord_str, direction):
     - float: Coordinate in decimal degrees.
     """
     if not coord_str or not direction:
-        raise ValueError("Invalid coordinate or direction.")
+        raise ValueError(f"Invalid coordinate or direction: {coord_str}; {direction}")
 
     # Convert string to float
     coord = float(coord_str)
@@ -36,72 +36,98 @@ def parse_nmea_sentences(nmea_data):
     :param nmea_data: String containing NMEA sentences separated by newline characters.
     :return: List of formatted strings with GPS information.
     """
-    results = {'time': '', 'latitude': '', 'longitude': '', 'altitude': '', 'speed': ''}
+    results = {'time': '', 'latitude': '', 'longitude': '', 'altitude': '', 'speed': '', 'raw': ''}
     
     lines = nmea_data.strip().splitlines()
+    
+    #results['raw'] = lines
+    
+    #print(f"NMEA: {nmea_data}")
     
     if lines == '':
         return results
 
     for line in lines:
-        line = line.strip()
-        if not line.startswith('$'):
-            continue  # Skip lines that are not NMEA sentences
+        try:
+            line = line.strip()
+            if not line.startswith('$'):
+                continue  # Skip lines that are not NMEA sentences
 
-        # Remove checksum and split the sentence
-        if '*' in line:
-            line = line.split('*')[0]
-        parts = line.split(',')
+            # Remove checksum and split the sentence
+            if '*' in line:
+                line = line.split('*')[0]
+            parts = line.split(',')
 
-        sentence_type = parts[0][3:]
+            sentence_type = parts[0][3:]
 
-        if sentence_type == 'GGA':
-            # Global Positioning System Fix Data
-            time_utc = parts[1]
-            lat = parts[2]
-            lat_dir = parts[3]
-            lon = parts[4]
-            lon_dir = parts[5]
-            fix_quality = parts[6]
-            num_satellites = parts[7]
-            altitude = parts[9]
-            altitude_units = parts[10]
+            if sentence_type == 'GGA':
+                # Global Positioning System Fix Data
+                time_utc = parts[1]
+                lat = parts[2]
+                lat_dir = parts[3]
+                lon = parts[4]
+                lon_dir = parts[5]
+                fix_quality = parts[6]
+                num_satellites = parts[7]
+                altitude = parts[9]
+                altitude_units = parts[10]
+                
+                #print(f"{lat}; {lat_dir}")
+                #print(f"{lon}; {lon_dir}")
+                
+                results['time'] = time_utc
+                if lat and lat_dir:
+                    results['latitude'] = nmea_to_decimal(lat, lat_dir)
+                if lon and lon_dir:
+                    results['longitude'] = nmea_to_decimal(lon, lon_dir)
+                results['altitude'] = altitude
+
+            elif sentence_type == 'RMC':
+                # Recommended Minimum Specific GPS/Transit Data
+                time_utc = parts[1]
+                status = parts[2]
+                lat = parts[3]
+                lat_dir = parts[4]
+                lon = parts[5]
+                lon_dir = parts[6]
+                speed = parts[7]
+                date = parts[9]
+                
+                #print(f"{lat}; {lat_dir}")
+                #print(f"{lon}; {lon_dir}")
+
+                
+                results['time'] = time_utc
+                if lat and lat_dir:
+                    results['latitude'] = nmea_to_decimal(lat, lat_dir)
+                if lon and lon_dir:
+                    results['longitude'] = nmea_to_decimal(lon, lon_dir)
+                results['speed'] = speed
+
+            elif sentence_type == 'GLL':
+                # Geographic Position – Latitude/Longitude
+                lat = parts[1]
+                lat_dir = parts[2]
+                lon = parts[3]
+                lon_dir = parts[4]
+                time_utc = parts[5]
+                status = parts[6]
+                
+                #print(f"{lat}; {lat_dir}")
+                #print(f"{lon}; {lon_dir}")
+                
+                results['time'] = time_utc
+                if lat and lat_dir:
+                    results['latitude'] = nmea_to_decimal(lat, lat_dir)
+                if lon and lon_dir:
+                    results['longitude'] = nmea_to_decimal(lon, lon_dir)
+
+            else:
+                results['time'] = ""
+                
+        except Exception as e:
+            print(f"GPS parse error: {e}")
+            results['raw'] = lines
             
-            results['time'] = time_utc
-            results['latitude'] = nmea_to_decimal(lat, lat_dir)
-            results['longitude'] = nmea_to_decimal(lon, lon_dir)
-            results['altitude'] = altitude
-
-        elif sentence_type == 'RMC':
-            # Recommended Minimum Specific GPS/Transit Data
-            time_utc = parts[1]
-            status = parts[2]
-            lat = parts[3]
-            lat_dir = parts[4]
-            lon = parts[5]
-            lon_dir = parts[6]
-            speed = parts[7]
-            date = parts[9]
-            
-            results['time'] = time_utc
-            results['latitude'] = nmea_to_decimal(lat, lat_dir)
-            results['longitude'] = nmea_to_decimal(lon, lon_dir)
-            results['speed'] = speed
-
-        elif sentence_type == 'GLL':
-            # Geographic Position – Latitude/Longitude
-            lat = parts[1]
-            lat_dir = parts[2]
-            lon = parts[3]
-            lon_dir = parts[4]
-            time_utc = parts[5]
-            status = parts[6]
-            
-            results['time'] = time_utc
-            results['latitude'] = nmea_to_decimal(lat, lat_dir)
-            results['longitude'] = nmea_to_decimal(lon, lon_dir)
-
-        else:
-            results['time'] = ""
 
     return results
