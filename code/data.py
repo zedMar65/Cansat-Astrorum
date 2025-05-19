@@ -13,7 +13,7 @@ class Data:
     
     def __init__(self, sensorList):        
         if sensorList.gy_91:
-            self.sensors["sensor_gy"] = SENSOR_GY(I2C(0, sda=Pin(12), scl=Pin(13)))
+            self.sensors["sensor_gy"] = SENSOR_GY(I2C(0, sda=Pin(14), scl=Pin(15)))
         if sensorList.radiation:
             self.sensors["sensor_radiation"] = SENSOR_RADIATION()
         if sensorList.dust:
