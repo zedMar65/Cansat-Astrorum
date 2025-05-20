@@ -1,1 +1,0 @@
-# 3d cansat designs
