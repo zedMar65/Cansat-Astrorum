@@ -103,13 +103,13 @@ class SENSOR_DHT11:
         self.sensor = dht.DHT11(pin)
 
 class RADIO:
-    radioChannel = None
-    def __init__(self, uart):
-        self.uart = uart
+    def __init__(self, radio_uart):
+        self.radio_uart = radio_uart
 
     def send(self, msg):
         try:
-            self.uart.write((str(msg)+'\n').encode())
+            print(f"send: {str(msg)}")
+            self.radio_uart.write((str(msg)+'\n').encode())
             return 0
         except Exception as e:
             print(f"Radio send error:{e}")
@@ -117,7 +117,10 @@ class RADIO:
         
     def read(self):
         try:
-            msg = self.uart.read()
-            return "You got a message: {msg}"
+            if self.radio_uart.any():
+                msg = self.radio_uart.read()
+                return f"You got a message: {msg.decode()}"
+            else:
+                return ""
         except Exception as e:
             return f"Radio read error: {e}"

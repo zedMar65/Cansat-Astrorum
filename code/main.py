@@ -23,9 +23,10 @@ def main() -> None:
             file.flush()
             if data.radio:
                 data.radio.send(data.get_data())
-                print(data.get_data())
+                #print(data.get_data())
+                #print(data.radio.read())
             else:
-                print(data.get_data())
+                print(f"NO RADIO: {data.get_data()}")
                 
             time.sleep(1)
             

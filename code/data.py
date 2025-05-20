@@ -27,8 +27,10 @@ class Data:
             self.sensors["sensor_dht11"] = SENSOR_DHT11(Pin(6, Pin.OUT, Pin.PULL_DOWN))
         
         self.radio = RADIO(
-            UART(1, baudrate=57600, tx=Pin(4), rx=Pin(5)), # uart
+            UART(1, baudrate=57600, tx=Pin(4), rx=Pin(5)) # uart
         )
+        
+        return
     
     def update(self) -> None:
         keys = self.sensors.keys()

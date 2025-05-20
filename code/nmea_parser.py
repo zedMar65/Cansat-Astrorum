@@ -129,5 +129,10 @@ def parse_nmea_sentences(nmea_data):
             print(f"GPS parse error: {e}")
             results['raw'] = lines
             
-
+    try:
+        if not results['longitude'] or not results['latitude']:
+            results['raw'] = lines
+    except Exception as e:
+        print(f"Nmea parser end error: {e}")
+    
     return results
