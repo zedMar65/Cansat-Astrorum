@@ -19,8 +19,9 @@ class SensorList:
         return
 
 class SENSOR:
+    name = "sensor"
+
     def __init__(self):
-        self.init()
         return
     def update(self) -> dict:
         return {}
@@ -28,34 +29,40 @@ class SENSOR:
         return
 
 class SENSOR_GY(SENSOR):
-    def __init__(self, i2c):
-        self.init(i2c)
+    name = "gy91"
+
+    def __init__(self):
+        return
         
     def update(self) -> dict:
         return {}
     
-    def init(self, i2c) -> None:
+    def init(self) -> None:
         return
 
         
 class SENSOR_GPS(SENSOR):
-    def __init__(self, gps_uart):
-        self.init(gps_uart)
+    name = "gps"
+
+    def __init__(self):
+        return
     
     def update(self) -> dict:
         return {}
 
-    def init(self, gps_uart) -> None:
+    def init(self) -> None:
         return
 
 class SENSOR_DHT11:
-    def __init__(self, pin):
-        self.init(pin)
+    name = "dht11"
+
+    def __init__(self):
+        return
     
     def update(self) -> dict:
         return {}
     
-    def init(self, pin) -> None:
+    def init(self) -> None:
         return
 
 class RADIO:
