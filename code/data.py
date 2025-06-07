@@ -38,7 +38,7 @@ class Data:
             self.data[sensor] = self.sensors[sensor].update()
         return
     
-    def get_data(self) -> str:
+    def get_data(self) -> dict:
         return self.data
     
     def re_init(self) -> None:

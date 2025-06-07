@@ -25,8 +25,8 @@ class SENSOR:
     def __init__(self):
         self.init()
         return
-    def update(self) -> str:
-        return
+    def update(self) -> dict:
+        return {}
     def init(self) -> None:
         return
 
@@ -34,7 +34,7 @@ class SENSOR_GY(SENSOR):
     def __init__(self, i2c):
         self.init(i2c)
         
-    def update(self) -> str:
+    def update(self) -> dict:
         try:
             #gyro = self.mpu.read_gyro_data()
             #accel = self.mpu.read_accel_data()
@@ -59,7 +59,7 @@ class SENSOR_GPS(SENSOR):
     def __init__(self, gps_uart):
         self.init(gps_uart)
     
-    def update(self) -> str:
+    def update(self) -> dict:
         #gps_data = self.gps_reader.get_data()
         #return f"{gps_data.satellites}; {gps_data.has_fix}; {gps_data.latitude}; {gps_data.longitude}"
         
@@ -89,7 +89,7 @@ class SENSOR_DHT11:
     def __init__(self, pin):
         self.init(pin)
     
-    def update(self) -> str:
+    def update(self) -> dict:
         try:
             self.sensor.measure()
             temp = self.sensor.temperature()
