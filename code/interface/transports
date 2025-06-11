@@ -1,0 +1,8 @@
+from log_interface import LoggerClass
+class UartLogger(LoggerClass):
+    def send(self, msg):
+        send_data_uart(msg)
+
+class WifiLogger(LoggerClass):
+    def send(self, msg):
+        send_data_wifi(msg)
