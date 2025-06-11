@@ -1,19 +1,19 @@
 """
 
-Config lib for globally acessable data contains:
+Config lib for globally accessable data contains:
 * Error codes
 * Print status codes
-* Changing varables
+* Changing variables
 
 """
 
-# For quick acess global vars, that might change
+# For quick access global vars, that might change
 class Vars:
     LOG_ID = None
     HARDWARE_LOG_PATH = None
     CURRENT_TIME = None
 
-# For quick acess constants
+# For quick access constants
 class Consts:
     # logging options uses bitmap by default
     UART_PRINT = 0x01
@@ -32,6 +32,6 @@ class Consts:
     DATA = "D"
 
 
-# For quick acess Error codes
+# For quick access Error codes
 class Errors:
     custom_error_message=None
